@@ -107,3 +107,9 @@ class Vote(db.Model):
     def get_votes(cls,user_id,pitches_id):
         votes = Vote.query.filter_by(user_id=user_id, pitches_id=pitches_id).all()
         return votes
+
+class PhotoProfile(db.Model):
+    __tablename__ = 'photoprofiles'
+    id = db.Column(db.Integer, primary_key = True)
+    pic_path = db.Column(db.String())
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
