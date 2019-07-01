@@ -57,3 +57,17 @@ class Pitch(db.Model):
     def get_pitches(id):
         pitches = Pitch.query.filter_by(category_id=id).all()
         return pitches
+
+class Category(db.Model):
+    __tablename__ = 'categories'
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String)
+
+    def save_category(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_categories(cls):
+        categories = Category.query.all()
+        return categories
