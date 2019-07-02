@@ -15,7 +15,6 @@ bootstrap = Bootstrap()
 db = SQLAlchemy()
 mail = Mail()
 simple = SimpleMDE()
-
 photos = UploadSet('photos', IMAGES)
 
 def create_app(config_name):
@@ -42,6 +41,5 @@ def create_app(config_name):
     # configure UploadSet
     configure_uploads(app,photos)
     
-    # Will add the views and forms
 
     return app
